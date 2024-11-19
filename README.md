@@ -63,8 +63,3 @@ http://localhost:7000
 - Vanilla JavaScript
 - Отзывчивый дизайн
 - БЭМ методология
-
-## Контакты
-
-Телефон: 8 (800) 123-45-67
-Email: mail@newlife.ru
