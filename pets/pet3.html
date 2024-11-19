@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Попугай | Новая жизнь</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/media.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../index.html" class="logo">
+                <img src="../img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="../index.html" class="nav__link">Главная</a></li>
+                <li><a href="../search.html" class="nav__link">Поиск</a></li>
+                <li><a href="../add.html" class="nav__link">Добавить объявление</a></li>
+                <li><a href="../login.html" class="nav__link">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pet-details">
+            <div class="container">
+                <h1>Найден попугай</h1>
+                
+                <div class="pet-details__gallery">
+                    <div class="pet-details__main-image">
+                        <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3" alt="Попугай главное фото">
+                    </div>
+                    <div class="pet-details__thumbnails">
+                        <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3" alt="Фото 1" onclick="updateMainImage(this.src)">
+                        <img src="https://images.unsplash.com/photo-1544923408-75c5cef46f14" alt="Фото 2" onclick="updateMainImage(this.src)">
+                        <img src="https://images.unsplash.com/photo-1501720804996-ae418d1ba820" alt="Фото 3" onclick="updateMainImage(this.src)">
+                    </div>
+                </div>
+
+                <div class="pet-details__info">
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Вид животного:</span>
+                        <span class="pet-details__value">Попугай</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Нашел:</span>
+                        <span class="pet-details__value">Алексей Иванов</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Телефон:</span>
+                        <a href="tel:+79005554433" class="pet-details__value">+7 (900) 555-44-33</a>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Email:</span>
+                        <a href="mailto:alex@example.com" class="pet-details__value">alex@example.com</a>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Район:</span>
+                        <span class="pet-details__value">Фрунзенский</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Дата находки:</span>
+                        <span class="pet-details__value">22.10.2023</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Клеймо:</span>
+                        <span class="pet-details__value">Нет</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Дополнительная информация:</span>
+                        <p class="pet-details__value">Найден на балконе. Волнистый попугай, зеленого цвета. Ручной, садится на руку.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__contact">
+                    <a href="tel:88001234567">8 (800) 123-45-67</a>
+                    <a href="mailto:mail@newlife.ru">mail@newlife.ru</a>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="../index.html">Главная</a></li>
+                        <li><a href="../register.html">Регистрация</a></li>
+                        <li><a href="../login.html">Авторизация</a></li>
+                        <li><a href="../profile.html">Личный кабинет</a></li>
+                        <li><a href="../add.html">Добавить объявление</a></li>
+                        <li><a href="../search.html">Поиск</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

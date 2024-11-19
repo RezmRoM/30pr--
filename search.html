@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск питомцев - Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="search.html" class="nav__link">Поиск</a></li>
+                <li><a href="add.html" class="nav__link">Добавить объявление</a></li>
+                <li><a href="login.html" class="nav__link">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="container">
+                <h1>Поиск питомцев</h1>
+                <div class="search-filters">
+                    <form class="search-form">
+                        <div class="form-group">
+                            <label for="pet-type">Тип животного</label>
+                            <select id="pet-type" name="pet-type">
+                                <option value="">Все</option>
+                                <option value="dog">Собака</option>
+                                <option value="cat">Кошка</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="district">Район</label>
+                            <select id="district" name="district">
+                                <option value="">Все районы</option>
+                                <option value="bragino">Брагино</option>
+                                <option value="zavolzhsky">Заволжский</option>
+                                <option value="frunzensky">Фрунзенский</option>
+                                <option value="kirovsky">Кировский</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Статус</label>
+                            <select id="status" name="status">
+                                <option value="">Все</option>
+                                <option value="lost">Потерян</option>
+                                <option value="found">Найден</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="button">Найти</button>
+                    </form>
+                </div>
+
+                <div class="search-results">
+                    <div class="pets__grid">
+                        <div class="pet-card">
+                            <div class="pet-card__image">
+                                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Собака">
+                            </div>
+                            <div class="pet-card__content">
+                                <h3>Найдена собака</h3>
+                                <p>Найдена в парке. Дружелюбная, ухоженная собака. На вид около 2 лет.</p>
+                                <div class="pet-card__details">
+                                    <span class="pet-card__district">Брагино</span>
+                                    <span class="pet-card__date">20.10.2023</span>
+                                </div>
+                                <a href="pets/pet1.html" class="button button--secondary">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="pet-card">
+                            <div class="pet-card__image">
+                                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="Кошка">
+                            </div>
+                            <div class="pet-card__content">
+                                <h3>Найдена кошка</h3>
+                                <p>Найдена возле магазина. Ласковая, домашняя кошка. Трехцветная.</p>
+                                <div class="pet-card__details">
+                                    <span class="pet-card__district">Заволжский</span>
+                                    <span class="pet-card__date">21.10.2023</span>
+                                </div>
+                                <a href="pets/pet2.html" class="button button--secondary">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="pet-card">
+                            <div class="pet-card__image">
+                                <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3" alt="Попугай">
+                            </div>
+                            <div class="pet-card__content">
+                                <h3>Найден попугай</h3>
+                                <p>Найден на балконе. Волнистый попугай, зеленого цвета. Ручной.</p>
+                                <div class="pet-card__details">
+                                    <span class="pet-card__district">Фрунзенский</span>
+                                    <span class="pet-card__date">22.10.2023</span>
+                                </div>
+                                <a href="pets/pet3.html" class="button button--secondary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="pagination__button pagination__button--prev" disabled>Предыдущая</button>
+                        <div class="pagination__pages">
+                            <button class="pagination__page pagination__page--active">1</button>
+                            <button class="pagination__page">2</button>
+                            <button class="pagination__page">3</button>
+                        </div>
+                        <button class="pagination__button pagination__button--next">Следующая</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Новая жизнь. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

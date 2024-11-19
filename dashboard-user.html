@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <style>
+        .profile-page {
+            padding: 40px 0;
+            background: var(--light-gray);
+            min-height: calc(100vh - 140px);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profile-info {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h2 {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #666;
+        }
+
+        .info-value {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .edit-btn {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            padding: 5px;
+            transition: var(--transition);
+        }
+
+        .edit-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .pets-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .pet-status-group {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .pet-status-group h3 {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .status-active {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .status-moderation {
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .status-found {
+            border-left: 4px solid #9C27B0;
+        }
+
+        .status-archive {
+            border-left: 4px solid #757575;
+        }
+
+        .pet-card--profile {
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+        }
+
+        .pet-card--profile img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .pet-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pet-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pet-actions button {
+            padding: 8px 16px;
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            background: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pet-actions button:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .logout-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 1024px) {
+            .pet-card--profile {
+                grid-template-columns: 150px 1fr;
+            }
+
+            .pet-actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pet-card--profile {
+                grid-template-columns: 1fr;
+            }
+
+            .pet-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="/" class="logo">
+                    <img src="img/logo.svg" alt="Новая жизнь">
+                </a>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="search.html" class="nav__link">Поиск</a></li>
+                        <li><a href="add.html" class="nav__link">Добавить</a></li>
+                        <li><a href="dashboard-user.html" class="nav__link nav__link--accent">Личный кабинет</a></li>
+                        <li><button onclick="logout()" class="nav__link">Выход</button></li>
+                    </ul>
+                    <button class="nav__toggle">
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-grid">
+                <aside class="profile-info">
+                    <h2>Информация о пользователе</h2>
+                    
+                    <div class="info-item">
+                        <span class="info-label">E-mail</span>
+                        <div class="info-value">
+                            <span id="userEmail">user@example.com</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Роль</span>
+                        <span id="userRole">Пользователь</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Добавлено объявлений</span>
+                        <span id="petsCount">0</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Найдено животных</span>
+                        <span id="foundPetsCount">0</span>
+                    </div>
+
+                    <button class="logout-btn" onclick="logout()">Выйти из аккаунта</button>
+                </aside>
+
+                <div class="pets-list">
+                    <div class="pet-status-group status-active">
+                        <h3>Активные объявления</h3>
+                        <div id="activePets">
+                            <!-- Активные объявления будут добавлены через JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="pet-status-group status-moderation">
+                        <h3>На модерации</h3>
+                        <div id="moderationPets">
+                            <!-- Объявления на модерации будут добавлены через JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="pet-status-group status-found">
+                        <h3>Найдено</h3>
+                        <div id="foundPets">
+                            <!-- Найденные животные будут добавлены через JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="pet-status-group status-archive">
+                        <h3>В архиве</h3>
+                        <div id="archivedPets">
+                            <!-- Архивные объявления будут добавлены через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contact">
+                    <a href="tel:88001234567">8 (800) 123-45-67</a>
+                    <a href="mailto:mail@newlife.ru">mail@newlife.ru</a>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Авторизация</a></li>
+                        <li><a href="dashboard-user.html">Личный кабинет</a></li>
+                        <li><a href="add.html">Найдено животное</a></li>
+                        <li><a href="search.html">Поиск</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Проверка авторизации
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (!user || user.role !== 'user') {
+                window.location.href = 'login.html';
+            }
+            return user;
+        }
+
+        // Загрузка данных пользователя
+        function loadUserData() {
+            const user = checkAuth();
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userRole').textContent = user.role === 'moderator' ? 'Модератор' : 'Пользователь';
+        }
+
+        // Получение списка объявлений из localStorage
+        function getPets() {
+            const pets = localStorage.getItem('pets');
+            return pets ? JSON.parse(pets) : [];
+        }
+
+        // Сохранение списка объявлений в localStorage
+        function savePets(pets) {
+            localStorage.setItem('pets', JSON.stringify(pets));
+        }
+
+        // Загрузка объявлений пользователя
+        function loadUserPets() {
+            const user = checkAuth();
+            let pets = getPets();
+
+            // Если нет объявлений, добавим демо-данные
+            if (pets.length === 0) {
+                pets = [
+                    {
+                        id: 1,
+                        image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500&q=80',
+                        title: 'Найдена собака',
+                        district: 'Заволжский район',
+                        description: 'Найдена собака породы лабрадор, черного цвета',
+                        status: 'active',
+                        date: '2023-12-01',
+                        userId: user.id
+                    },
+                    {
+                        id: 2,
+                        image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&q=80',
+                        title: 'Найден кот',
+                        district: 'Кировский район',
+                        description: 'Найден рыжий кот с ошейником',
+                        status: 'moderation',
+                        date: '2023-12-02',
+                        userId: user.id
+                    }
+                ];
+                savePets(pets);
+            }
+
+            // Фильтруем объявления текущего пользователя
+            const userPets = pets.filter(pet => pet.userId === user.id);
+
+            // Очищаем все контейнеры
+            document.getElementById('activePets').innerHTML = '';
+            document.getElementById('moderationPets').innerHTML = '';
+            document.getElementById('foundPets').innerHTML = '';
+            document.getElementById('archivedPets').innerHTML = '';
+
+            // Подсчет статистики
+            document.getElementById('petsCount').textContent = userPets.length;
+            document.getElementById('foundPetsCount').textContent = userPets.filter(pet => pet.status === 'found').length;
+
+            // Отображение объявлений по категориям
+            userPets.forEach(pet => {
+                const petCard = createPetCard(pet);
+                switch(pet.status) {
+                    case 'active':
+                        document.getElementById('activePets').appendChild(petCard);
+                        break;
+                    case 'moderation':
+                        document.getElementById('moderationPets').appendChild(petCard);
+                        break;
+                    case 'found':
+                        document.getElementById('foundPets').appendChild(petCard);
+                        break;
+                    case 'archive':
+                        document.getElementById('archivedPets').appendChild(petCard);
+                        break;
+                }
+            });
+        }
+
+        // Создание карточки объявления
+        function createPetCard(pet) {
+            const div = document.createElement('div');
+            div.className = 'pet-card--profile';
+            div.dataset.petId = pet.id;
+            div.innerHTML = `
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="${pet.title}">
+                <div class="pet-info">
+                    <strong>${pet.district}</strong>
+                    <time>${pet.date}</time>
+                    <p>${pet.description}</p>
+                </div>
+                <div class="pet-actions">
+                    <button onclick="editPet(${pet.id})">Редактировать</button>
+                    <button onclick="deletePet(${pet.id})">Удалить</button>
+                </div>
+            `;
+            return div;
+        }
+
+        // Редактирование объявления
+        function editPet(id) {
+            const pets = getPets();
+            const pet = pets.find(p => p.id === id);
+            
+            if (!pet) return;
+
+            // Создаем модальное окно для редактирования
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2>Редактирование объявления</h2>
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label>Район:</label>
+                            <input type="text" name="district" value="${pet.district}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Описание:</label>
+                            <textarea name="description" required>${pet.description}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Статус:</label>
+                            <select name="status">
+                                <option value="active" ${pet.status === 'active' ? 'selected' : ''}>Активно</option>
+                                <option value="found" ${pet.status === 'found' ? 'selected' : ''}>Найдено</option>
+                                <option value="archive" ${pet.status === 'archive' ? 'selected' : ''}>В архиве</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">Сохранить</button>
+                            <button type="button" class="btn-cancel" onclick="closeModal(this)">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+
+            // Добавляем стили для модального окна
+            const style = document.createElement('style');
+            style.textContent = `
+                .modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                }
+                .modal-content {
+                    background: white;
+                    padding: 30px;
+                    border-radius: var(--border-radius);
+                    width: 90%;
+                    max-width: 500px;
+                }
+                .form-group {
+                    margin-bottom: 20px;
+                }
+                .form-group label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                .form-group input,
+                .form-group textarea,
+                .form-group select {
+                    width: 100%;
+                    padding: 8px;
+                    border: 1px solid #ddd;
+                    border-radius: var(--border-radius);
+                }
+                .form-group textarea {
+                    height: 100px;
+                    resize: vertical;
+                }
+                .form-actions {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: flex-end;
+                }
+                .btn-save,
+                .btn-cancel {
+                    padding: 8px 16px;
+                    border-radius: var(--border-radius);
+                    cursor: pointer;
+                }
+                .btn-save {
+                    background: var(--primary-color);
+                    color: white;
+                    border: none;
+                }
+                .btn-cancel {
+                    background: none;
+                    border: 1px solid var(--primary-color);
+                    color: var(--primary-color);
+                }
+            `;
+
+            document.head.appendChild(style);
+            document.body.appendChild(modal);
+
+            // Обработчик формы редактирования
+            const form = modal.querySelector('#editForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Обновляем данные объявления
+                const formData = new FormData(form);
+                pet.district = formData.get('district');
+                pet.description = formData.get('description');
+                pet.status = formData.get('status');
+
+                // Сохраняем изменения
+                const pets = getPets();
+                const index = pets.findIndex(p => p.id === id);
+                if (index !== -1) {
+                    pets[index] = pet;
+                    savePets(pets);
+                }
+
+                // Закрываем модальное окно и обновляем список
+                closeModal(modal);
+                loadUserPets();
+            });
+        }
+
+        // Закрытие модального окна
+        function closeModal(element) {
+            const modal = element.closest('.modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Удаление объявления
+        function deletePet(id) {
+            if (confirm('Вы уверены, что хотите удалить это объявление?')) {
+                const pets = getPets();
+                const index = pets.findIndex(pet => pet.id === id);
+                
+                if (index !== -1) {
+                    pets.splice(index, 1);
+                    savePets(pets);
+                    loadUserPets();
+                }
+            }
+        }
+
+        // Выход из аккаунта
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+
+        // Инициализация страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUserData();
+            loadUserPets();
+        });
+    </script>
+</body>
+</html>

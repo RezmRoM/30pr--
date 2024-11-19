@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка животного | Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="search.html" class="nav__link">Поиск</a></li>
+                <li><a href="add-pet.html" class="nav__link">Добавить объявление</a></li>
+                <li><a href="login.html" class="nav__link">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pet-details">
+            <div class="container">
+                <h1>Найдена собака</h1>
+                
+                <div class="pet-details__gallery">
+                    <div class="pet-details__main-image">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3" alt="Собака главное фото">
+                    </div>
+                    <div class="pet-details__thumbnails">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3" alt="Фото 1">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de2?ixlib=rb-4.0.3" alt="Фото 2">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de3?ixlib=rb-4.0.3" alt="Фото 3">
+                    </div>
+                </div>
+
+                <div class="pet-details__info">
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Вид животного:</span>
+                        <span class="pet-details__value">Собака</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Нашел:</span>
+                        <span class="pet-details__value">Иван Петров</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Телефон:</span>
+                        <a href="tel:+79001234567" class="pet-details__value">+7 (900) 123-45-67</a>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Email:</span>
+                        <a href="mailto:ivan@example.com" class="pet-details__value">ivan@example.com</a>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Район:</span>
+                        <span class="pet-details__value">Брагино</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Дата находки:</span>
+                        <span class="pet-details__value">20.10.2023</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Клеймо:</span>
+                        <span class="pet-details__value">Нет</span>
+                    </div>
+                    <div class="pet-details__row">
+                        <span class="pet-details__label">Дополнительная информация:</span>
+                        <p class="pet-details__value">Найдена в районе ТЦ "Аура". Дружелюбная, ухоженная собака. На вид около 2 лет. Была в синем ошейнике.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__contact">
+                    <a href="tel:88001234567">8 (800) 123-45-67</a>
+                    <a href="mailto:mail@newlife.ru">mail@newlife.ru</a>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Авторизация</a></li>
+                        <li><a href="profile.html">Личный кабинет</a></li>
+                        <li><a href="add-pet.html">Найдено животное</a></li>
+                        <li><a href="search.html">Поиск</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

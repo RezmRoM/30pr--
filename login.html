@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <style>
+        .login-page {
+            min-height: calc(100vh - 140px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+            background: var(--light-gray);
+        }
+
+        .login-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-form h1 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .error-message {
+            color: #f44336;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .input-error {
+            border-color: #f44336 !important;
+        }
+
+        .demo-credentials {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .demo-credentials h3 {
+            margin: 0 0 15px;
+            text-align: center;
+            color: var(--text-color);
+            font-size: 18px;
+        }
+
+        .credentials-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .credential-item {
+            padding: 15px;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        .credential-item h4 {
+            margin: 0 0 10px;
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .credential-item p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 480px) {
+            .credentials-block {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="search.html" class="nav__link">Поиск</a></li>
+                <li><a href="add.html" class="nav__link">Добавить объявление</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-page">
+            <form class="login-form" id="loginForm" onsubmit="return handleLogin(event)">
+                <h1>Вход в систему</h1>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="emailError">Неверный формат email</div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" required>
+                    <div class="error-message" id="passwordError">Неверный пароль</div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Войти</button>
+                </div>
+            </form>
+            <div class="demo-credentials">
+                <h3>Демо-данные для входа:</h3>
+                <div class="credentials-block">
+                    <div class="credential-item">
+                        <h4>Пользователь:</h4>
+                        <p>Email: user@example.com</p>
+                        <p>Пароль: user123</p>
+                    </div>
+                    <div class="credential-item">
+                        <h4>Модератор:</h4>
+                        <p>Email: moderator@example.com</p>
+                        <p>Пароль: mod123</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Новая жизнь. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Демо-данные пользователей
+        const users = [
+            { email: 'user@example.com', password: 'user123', role: 'user' },
+            { email: 'moderator@example.com', password: 'mod123', role: 'moderator' }
+        ];
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Сброс ошибок
+            document.getElementById('emailError').classList.remove('visible');
+            document.getElementById('passwordError').classList.remove('visible');
+            document.getElementById('email').classList.remove('input-error');
+            document.getElementById('password').classList.remove('input-error');
+
+            // Поиск пользователя
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                // Сохранение данных пользователя
+                localStorage.setItem('currentUser', JSON.stringify({
+                    email: user.email,
+                    role: user.role
+                }));
+
+                // Перенаправление в зависимости от роли
+                if (user.role === 'moderator') {
+                    window.location.href = 'dashboard-moderator.html';
+                } else {
+                    window.location.href = 'dashboard-user.html';
+                }
+            } else {
+                // Показ ошибки
+                document.getElementById('emailError').classList.add('visible');
+                document.getElementById('passwordError').classList.add('visible');
+                document.getElementById('email').classList.add('input-error');
+                document.getElementById('password').classList.add('input-error');
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>

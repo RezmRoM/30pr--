@@ -1,0 +1,21 @@
+{
+  "name": "new-life-pet-rescue",
+  "version": "1.0.0",
+  "description": "Pet rescue website for Yaroslavl",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "pet-rescue",
+    "yaroslavl",
+    "animals"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

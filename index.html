@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новая жизнь - Поиск потерянных животных</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="search.html" class="nav__link">Поиск</a></li>
+                <li><a href="add.html" class="nav__link">Добавить объявление</a></li>
+                <li><a href="login.html" class="nav__link">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="slider">
+                <div class="slider__item">
+                    <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e" alt="Собака" class="slider__image">
+                    <div class="slider__content">
+                        <h2>Помогите найти хозяина</h2>
+                        <p>Каждый день мы помогаем питомцам найти свой дом</p>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13" alt="Кошка" class="slider__image">
+                    <div class="slider__content">
+                        <h2>Пропала кошка?</h2>
+                        <p>Разместите объявление бесплатно</p>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8" alt="Питомцы" class="slider__image">
+                    <div class="slider__content">
+                        <h2>Нашли питомца?</h2>
+                        <p>Помогите ему вернуться домой</p>
+                    </div>
+                </div>
+                <div class="slider__dots">
+                    <span class="slider__dot"></span>
+                    <span class="slider__dot"></span>
+                    <span class="slider__dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-search">
+            <div class="container">
+                <form class="search-form">
+                    <input type="text" placeholder="Введите вид животного..." list="pet-types">
+                    <datalist id="pet-types">
+                        <option value="Кошка">
+                        <option value="Собака">
+                        <option value="Хомяк">
+                        <option value="Попугай">
+                    </datalist>
+                    <button type="submit" class="btn">Найти</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="facts">
+            <div class="container">
+                <div class="facts__grid">
+                    <div class="fact">
+                        <img src="img/icons/pets.svg" alt="Животные">
+                        <h3>500+ животных</h3>
+                        <p>Помогли найти более 500 животных</p>
+                    </div>
+                    <div class="fact">
+                        <img src="img/icons/years.svg" alt="Опыт">
+                        <h3>3+ года</h3>
+                        <p>Более трех лет помогаем вернуть питомцев</p>
+                    </div>
+                    <div class="fact">
+                        <img src="img/icons/free.svg" alt="Бесплатно">
+                        <h3>Бесплатно</h3>
+                        <p>Все услуги оказываются бесплатно</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pets">
+            <div class="container">
+                <h2>Недавно добавленные</h2>
+                <div class="pets__grid">
+                    <div class="pet-card">
+                        <div class="pet-card__image">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Собака">
+                        </div>
+                        <div class="pet-card__content">
+                            <h3>Найдена собака</h3>
+                            <p>Найдена в парке. Дружелюбная, ухоженная собака. На вид около 2 лет.</p>
+                            <a href="pets/pet1.html" class="button button--secondary">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-card__image">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="Кошка">
+                        </div>
+                        <div class="pet-card__content">
+                            <h3>Найдена кошка</h3>
+                            <p>Найдена возле магазина. Ласковая, домашняя кошка. Трехцветная.</p>
+                            <a href="pets/pet2.html" class="button button--secondary">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-card__image">
+                            <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3" alt="Попугай">
+                        </div>
+                        <div class="pet-card__content">
+                            <h3>Найден попугай</h3>
+                            <p>Найден на балконе. Волнистый попугай, зеленого цвета. Ручной.</p>
+                            <a href="pets/pet3.html" class="button button--secondary">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <form class="search-form search-form--full">
+                    <select name="district">
+                        <option value="">Выберите район</option>
+                        <option value="zavolzhsky">Заволжский</option>
+                        <option value="leninsky">Ленинский</option>
+                        <option value="kirovsky">Кировский</option>
+                    </select>
+                    <select name="pet-type">
+                        <option value="">Вид животного</option>
+                        <option value="cat">Кошка</option>
+                        <option value="dog">Собака</option>
+                    </select>
+                    <input type="text" placeholder="Поиск по описанию...">
+                    <button type="submit" class="btn">Найти питомца</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="reviews" id="reviews">
+            <div class="container">
+                <div class="reviews__slider">
+                    <div class="review active">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Питомец">
+                        <div class="review__content">
+                            <h3>Анна Петрова</h3>
+                            <p>Благодаря сервису нашли нашего кота через 2 дня после пропажи!</p>
+                            <time>15.10.2023</time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe">
+            <div class="container">
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш email" required>
+                    <label class="checkbox">
+                        <input type="checkbox" required>
+                        <span>Согласен на обработку персональных данных</span>
+                    </label>
+                    <button type="submit" class="btn">Подписаться</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contact">
+                    <a href="tel:88001234567">8 (800) 123-45-67</a>
+                    <a href="mailto:mail@newlife.ru">mail@newlife.ru</a>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Авторизация</a></li>
+                        <li><a href="profile.html">Личный кабинет</a></li>
+                        <li><a href="add.html">Найдено животное</a></li>
+                        <li><a href="search.html">Поиск</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

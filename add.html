@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить объявление - Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="search.html" class="nav__link">Поиск</a></li>
+                <li><a href="add.html" class="nav__link active">Добавить объявление</a></li>
+                <li><a href="login.html" class="nav__link">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="add-pet">
+            <div class="container">
+                <h1>Добавить объявление о найденном животном</h1>
+                <form class="add-pet__form" action="#" method="POST">
+                    <!-- Контактная информация -->
+                    <div class="form-section">
+                        <h2>Контактная информация</h2>
+                        <div class="form-group">
+                            <label for="phone">Контактный телефон*</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                pattern="[0-9]{11}"
+                                placeholder="+7 (___) ___-__-__">
+                            <span class="error-message">Введите корректный номер телефона</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required
+                                placeholder="example@mail.ru">
+                            <span class="error-message">Введите корректный email</span>
+                        </div>
+
+                        <!-- Блок регистрации -->
+                        <div class="registration-block">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="register" id="register">
+                                <span>Зарегистрироваться на сайте</span>
+                            </label>
+
+                            <div class="password-fields">
+                                <div class="form-group">
+                                    <label for="password">Пароль*</label>
+                                    <input type="password" id="password" name="password"
+                                        minlength="6">
+                                    <span class="error-message">Минимум 6 символов</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password-confirm">Подтверждение пароля*</label>
+                                    <input type="password" id="password-confirm" name="password-confirm"
+                                        minlength="6">
+                                    <span class="error-message">Пароли не совпадают</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Информация о животном -->
+                    <div class="form-section">
+                        <h2>Информация о животном</h2>
+                        <div class="form-group">
+                            <label for="pet-type">Вид животного*</label>
+                            <select id="pet-type" name="pet-type" required>
+                                <option value="">Выберите вид животного</option>
+                                <option value="cat">Кошка</option>
+                                <option value="dog">Собака</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Фотографии животного (до 3 шт)*</label>
+                            <div class="photo-upload">
+                                <div class="photo-upload__item">
+                                    <input type="file" id="photo1" name="photo1" accept="image/*" required>
+                                    <label for="photo1" class="photo-upload__label">
+                                        <span>+</span>
+                                        <span>Добавить фото</span>
+                                    </label>
+                                </div>
+                                <div class="photo-upload__item">
+                                    <input type="file" id="photo2" name="photo2" accept="image/*">
+                                    <label for="photo2" class="photo-upload__label">
+                                        <span>+</span>
+                                        <span>Добавить фото</span>
+                                    </label>
+                                </div>
+                                <div class="photo-upload__item">
+                                    <input type="file" id="photo3" name="photo3" accept="image/*">
+                                    <label for="photo3" class="photo-upload__label">
+                                        <span>+</span>
+                                        <span>Добавить фото</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Дополнительная информация*</label>
+                            <textarea id="description" name="description" required
+                                placeholder="Опишите обстоятельства, при которых было найдено животное, его породу, кличку и другие особенности"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand">Клеймо</label>
+                            <input type="text" id="brand" name="brand"
+                                placeholder="Если есть клеймо, укажите его">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="district">Район*</label>
+                            <select id="district" name="district" required>
+                                <option value="">Выберите район</option>
+                                <option value="dzerzhinsky">Дзержинский</option>
+                                <option value="zavolzhsky">Заволжский</option>
+                                <option value="kirovsky">Кировский</option>
+                                <option value="krasnoperekopsky">Красноперекопский</option>
+                                <option value="leninsky">Ленинский</option>
+                                <option value="frunzensky">Фрунзенский</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="found-date">Дата находки*</label>
+                            <input type="date" id="found-date" name="found-date" required>
+                        </div>
+                    </div>
+
+                    <!-- Согласие и отправка -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="agreement" required>
+                                <span>Я согласен на обработку персональных данных*</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="button button--primary">Добавить объявление</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contact">
+                    <p>Телефон: <a href="tel:88001234567">8 (800) 123-45-67</a></p>
+                    <p>Email: <a href="mailto:mail@newlife.ru">mail@newlife.ru</a></p>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Авторизация</a></li>
+                        <li><a href="profile.html">Личный кабинет</a></li>
+                        <li><a href="add.html">Найдено животное</a></li>
+                        <li><a href="search.html">Поиск</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

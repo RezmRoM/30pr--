@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление объявлениями | Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="search.html" class="nav__link">Поиск</a></li>
+                <li><a href="add-pet.html" class="nav__link">Добавить объявление</a></li>
+                <li><a href="login.html" class="nav__link">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="moderator">
+            <div class="container">
+                <h1>Управление объявлениями</h1>
+                
+                <div class="moderator__controls">
+                    <div class="form-group">
+                        <label for="sort">Сортировать по:</label>
+                        <select id="sort" class="form-control">
+                            <option value="date-desc">Дате (сначала новые)</option>
+                            <option value="date-asc">Дате (сначала старые)</option>
+                            <option value="status">Статусу</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="moderator__list">
+                    <!-- Объявление на модерации -->
+                    <div class="moderator__item status-moderation">
+                        <div class="moderator__item-image">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3" alt="Собака">
+                        </div>
+                        <div class="moderator__item-content">
+                            <h3>Найдена собака</h3>
+                            <p>Район: Брагино</p>
+                            <p>Дата: 20.10.2023</p>
+                            <p>Статус: На модерации</p>
+                            <div class="moderator__item-actions">
+                                <button class="button button--success">Одобрить</button>
+                                <button class="button button--danger">Отклонить</button>
+                                <button class="button">Архивировать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Активное объявление -->
+                    <div class="moderator__item status-active">
+                        <div class="moderator__item-image">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3" alt="Кошка">
+                        </div>
+                        <div class="moderator__item-content">
+                            <h3>Найден кот</h3>
+                            <p>Район: Центр</p>
+                            <p>Дата: 19.10.2023</p>
+                            <p>Статус: Активно</p>
+                            <div class="moderator__item-actions">
+                                <button class="button button--success">Найден</button>
+                                <button class="button">Архивировать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__contact">
+                    <a href="tel:88001234567">8 (800) 123-45-67</a>
+                    <a href="mailto:mail@newlife.ru">mail@newlife.ru</a>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Авторизация</a></li>
+                        <li><a href="profile.html">Личный кабинет</a></li>
+                        <li><a href="add-pet.html">Найдено животное</a></li>
+                        <li><a href="search.html">Поиск</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

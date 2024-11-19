@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <style>
+        .profile-page {
+            padding: 40px 0;
+            background: var(--light-gray);
+            min-height: calc(100vh - 140px);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profile-info {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h2 {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #666;
+        }
+
+        .info-value {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .edit-btn {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            padding: 5px;
+            transition: var(--transition);
+        }
+
+        .edit-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .pets-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .pet-status-group {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .pet-status-group h3 {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .status-active {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .status-moderation {
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .status-found {
+            border-left: 4px solid #9C27B0;
+        }
+
+        .status-archive {
+            border-left: 4px solid #757575;
+        }
+
+        .pet-card--profile {
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .pet-card--profile img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .pet-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pet-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pet-actions button {
+            padding: 8px 16px;
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            background: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pet-actions button:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 1024px) {
+            .pet-card--profile {
+                grid-template-columns: 150px 1fr;
+            }
+
+            .pet-actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pet-card--profile {
+                grid-template-columns: 1fr;
+            }
+
+            .pet-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="/" class="logo">
+                    <img src="img/logo.svg" alt="Новая жизнь">
+                </a>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="search.html" class="nav__link">Поиск</a></li>
+                        <li><a href="add.html" class="nav__link">Добавить</a></li>
+                        <li><a href="profile.html" class="nav__link nav__link--accent">Личный кабинет</a></li>
+                        <li><a href="#" class="nav__link">Выход</a></li>
+                    </ul>
+                    <button class="nav__toggle">
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="profile-grid">
+                <aside class="profile-info">
+                    <h2>Информация о пользователе</h2>
+                    
+                    <div class="info-item">
+                        <span class="info-label">Телефон</span>
+                        <div class="info-value">
+                            <span>+7 (900) 123-45-67</span>
+                            <button class="edit-btn">✏️</button>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">E-mail</span>
+                        <div class="info-value">
+                            <span>user@example.com</span>
+                            <button class="edit-btn">✏️</button>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Добавлено объявлений</span>
+                        <span>15</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Найдено животных</span>
+                        <span>8</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Дата регистрации</span>
+                        <span>01.01.2023</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Дней на сайте</span>
+                        <span>293</span>
+                    </div>
+                </aside>
+
+                <div class="pets-list">
+                    <div class="pet-status-group status-active">
+                        <h3>Активные объявления</h3>
+                        <div class="pet-card--profile">
+                            <img src="img/pets/1.jpg" alt="Найденное животное">
+                            <div class="pet-info">
+                                <strong>Заволжский район</strong>
+                                <time>20.10.2023</time>
+                                <p>Найден рыжий кот с ошейником возле магазина "Пятерочка"</p>
+                                <span>Клеймо: A123</span>
+                            </div>
+                            <div class="pet-actions">
+                                <button>Редактировать</button>
+                                <button>Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pet-status-group status-moderation">
+                        <h3>На модерации</h3>
+                        <div class="pet-card--profile">
+                            <img src="img/pets/2.jpg" alt="Найденное животное">
+                            <div class="pet-info">
+                                <strong>Кировский район</strong>
+                                <time>19.10.2023</time>
+                                <p>Найдена собака породы лабрадор, черного цвета</p>
+                            </div>
+                            <div class="pet-actions">
+                                <button>Редактировать</button>
+                                <button>Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pet-status-group status-found">
+                        <h3>Найдено</h3>
+                        <div class="pet-card--profile">
+                            <img src="img/pets/3.jpg" alt="Найденное животное">
+                            <div class="pet-info">
+                                <strong>Ленинский район</strong>
+                                <time>15.10.2023</time>
+                                <p>Найден белый кот, вернулся к хозяевам</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pet-status-group status-archive">
+                        <h3>В архиве</h3>
+                        <div class="pet-card--profile">
+                            <img src="img/pets/4.jpg" alt="Найденное животное">
+                            <div class="pet-info">
+                                <strong>Фрунзенский район</strong>
+                                <time>10.10.2023</time>
+                                <p>Найдена кошка трехцветная</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contact">
+                    <a href="tel:88001234567">8 (800) 123-45-67</a>
+                    <a href="mailto:mail@newlife.ru">mail@newlife.ru</a>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Авторизация</a></li>
+                        <li><a href="profile.html">Личный кабинет</a></li>
+                        <li><a href="add.html">Найдено животное</a></li>
+                        <li><a href="search.html">Поиск</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

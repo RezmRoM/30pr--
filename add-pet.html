@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить объявление - Новая жизнь</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Новая жизнь">
+            </a>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Главная</a></li>
+                <li><a href="search.html" class="nav__link">Поиск</a></li>
+                <li><a href="add-pet.html" class="nav__link">Добавить объявление</a></li>
+                <li><a href="login.html" class="nav__link">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="add-pet-section">
+            <div class="container">
+                <h1>Добавить объявление</h1>
+                <form class="add-pet-form">
+                    <div class="form-group">
+                        <label for="pet-type">Тип животного*</label>
+                        <select id="pet-type" name="pet-type" required>
+                            <option value="">Выберите тип</option>
+                            <option value="dog">Собака</option>
+                            <option value="cat">Кошка</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Статус*</label>
+                        <select id="status" name="status" required>
+                            <option value="">Выберите статус</option>
+                            <option value="lost">Потерян</option>
+                            <option value="found">Найден</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="district">Район*</label>
+                        <select id="district" name="district" required>
+                            <option value="">Выберите район</option>
+                            <option value="bragino">Брагино</option>
+                            <option value="zavolzhsky">Заволжский</option>
+                            <option value="frunzensky">Фрунзенский</option>
+                            <option value="kirovsky">Кировский</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Описание*</label>
+                        <textarea id="description" name="description" rows="5" required 
+                            placeholder="Опишите внешний вид, особые приметы, место и обстоятельства пропажи/находки"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Контактный телефон*</label>
+                        <input type="tel" id="contact" name="contact" required 
+                            placeholder="+7 (___) ___-__-__">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photos">Фотографии</label>
+                        <input type="file" id="photos" name="photos" multiple 
+                            accept="image/*">
+                        <small>Можно загрузить до 5 фотографий</small>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="button">Опубликовать</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Новая жизнь. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
